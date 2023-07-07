@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import {ThemeContext} from "./contexts/theme";
+import {ThemeContext} from "./shared/contexts/theme";
 import './App.scss'
 import {Header} from "./components/Header";
+import "./shared/i18n/config"
 
 function App() {
   const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
