@@ -3,6 +3,8 @@ import {ThemeContext} from "./shared/contexts/theme";
 import './App.scss'
 import {Header} from "./components/Header";
 import "./shared/i18n/config"
+import {Route, Routes} from "react-router-dom";
+import {AdminDashboard} from "./common/admin";
 
 function App() {
   const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -16,11 +18,17 @@ function App() {
   const [theme, setTheme] = useState(getDefaultTheme());
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`theme-${theme}`}>
-        <Header />
-      </div>
-    </ThemeContext.Provider>
-  );}
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <Routes>
+        <Route path="/" element={
+          <div className={`theme-${theme}`}>
+            <Header/>
+          </div>
+        } />
+        <Route path="/admin/*" element={<AdminDashboard />} />
+      </Routes>
 
+    </ThemeContext.Provider>
+  )
+}
 export default App
