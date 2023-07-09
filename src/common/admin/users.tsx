@@ -1,4 +1,4 @@
-import {BooleanInput, DateTimeInput, Edit, required, SimpleForm, TextInput} from "react-admin";
+import {BooleanInput, Create, DateTimeInput, Edit, required, SimpleForm, TextInput} from "react-admin";
 
 export const UserEdit = () => (
   <Edit>
@@ -11,4 +11,14 @@ export const UserEdit = () => (
           <DateTimeInput disabled name={"updatedAt"} source="updatedAt" />
       </SimpleForm>
   </Edit>
+)
+
+export const UserCreate = () => (
+  <Create>
+    <SimpleForm>
+      <TextInput name={"username"} source={"username"} validate={required()} />
+      <TextInput name={"email"} source={"email"} validate={required()} />
+      <TextInput name={"password"} source={"password"} validate={required()} />
+    </SimpleForm>
+  </Create>
 )
