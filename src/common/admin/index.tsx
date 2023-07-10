@@ -2,7 +2,7 @@ import {Admin, fetchUtils, ListGuesser, Resource} from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 import {UserCreate, UserEdit} from "./users";
 import {config} from "../../config";
-import {CollectionEdit} from "./collections";
+import {CollectionCreate, CollectionEdit, CollectionList} from "./collections";
 
 export const AdminDashboard = () => {
   return (
@@ -12,7 +12,7 @@ export const AdminDashboard = () => {
       defaultTheme={"light"}
     >
       <Resource name="users" list={ListGuesser} edit={UserEdit} create={UserCreate}/>
-      <Resource name={"collections"} list={ListGuesser} edit={CollectionEdit}/>
+      <Resource name={"collections"} list={CollectionList} edit={CollectionEdit} create={CollectionCreate}/>
     </Admin>
   );
 }
