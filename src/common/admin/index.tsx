@@ -1,14 +1,13 @@
-import {Admin, fetchUtils, ListGuesser, Resource} from "react-admin";
-import simpleRestProvider from "ra-data-simple-rest";
+import {Admin, ListGuesser, Resource} from "react-admin";
 import {UserCreate, UserEdit} from "./users";
-import {config} from "../../config";
 import {CollectionCreate, CollectionEdit, CollectionList} from "./collections";
+import dataProvider from "./dataProvider";
 
 export const AdminDashboard = () => {
   return (
     <Admin
       basename={"/admin"}
-      dataProvider={simpleRestProvider(config.API_URL, fetchUtils.fetchJson, 'X-Total-Count')}
+      dataProvider={dataProvider}
       defaultTheme={"light"}
     >
       <Resource name="users" list={ListGuesser} edit={UserEdit} create={UserCreate}/>

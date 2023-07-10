@@ -1,7 +1,7 @@
 import {
   ArrayInput,
   Create,
-  Edit,
+  Edit, FileField,
   FileInput,
   ReferenceInput,
   required,
@@ -11,6 +11,7 @@ import {
 import {RichTextInput} from "ra-input-rich-text";
 
 import { Datagrid, List, ReferenceField, TextField } from 'react-admin';
+import "../styles/admin.scss"
 
 export const CollectionList = () => (
   <List>
@@ -30,7 +31,9 @@ export const CollectionEdit = () => {
       <SimpleForm>
         <TextInput name={"title"} source={"title"} validate={required()}/>
         <RichTextInput name={"description"} source={"description"}/>
-
+        <FileInput source="image">
+          <FileField source="path" title="title" />
+        </FileInput>
         <ReferenceInput source="userId" reference="users" name={"users"}/>
         <ReferenceInput source="subjectId" reference="subjects" name={"subjects"}/>
 
@@ -61,7 +64,6 @@ export const CollectionCreate = () => (
 
       <ArrayInput
         source="customFields"
-        validate={[required()]}
       >
         <SimpleFormIterator>
           <TextInput source="fieldName" defaultValue="" />
