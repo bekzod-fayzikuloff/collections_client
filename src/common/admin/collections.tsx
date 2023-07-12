@@ -2,7 +2,7 @@ import {
   ArrayInput,
   Create,
   Edit, FileField,
-  FileInput,
+  FileInput, ImageField,
   ReferenceInput,
   required,
   SimpleForm, SimpleFormIterator,
@@ -34,6 +34,7 @@ export const CollectionEdit = () => {
         <FileInput source="image">
           <FileField source="path" title="title" />
         </FileInput>
+        <ImageField source={"image"}/>
         <ReferenceInput source="userId" reference="users" name={"users"}/>
         <ReferenceInput source="subjectId" reference="subjects" name={"subjects"}/>
 
@@ -57,7 +58,9 @@ export const CollectionCreate = () => (
     <SimpleForm>
       <TextInput name={"title"} source={"title"} validate={required()}/>
       <RichTextInput name={"description"} source={"description"}/>
-      <FileInput name={"image"} source={"image"} options={{}}/>
+      <FileInput source="image">
+        <FileField source="path" title="title" />
+      </FileInput>
 
       <ReferenceInput source="userId" reference="users" name={"users"}/>
       <ReferenceInput source="subjectId" reference="subjects" name={"subjects"}/>
