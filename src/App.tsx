@@ -20,12 +20,13 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
       <Routes>
+        <Route path="/admin/*" element={<AdminDashboard />} />
         <Route path="/" element={
           <div className={`theme-${theme}`}>
             <Header/>
           </div>
         } />
-        <Route path="/admin/*" element={<AdminDashboard />} />
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
 
     </ThemeContext.Provider>
