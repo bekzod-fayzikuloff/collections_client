@@ -1,4 +1,15 @@
-import {Edit, Create, SimpleForm, TextInput} from "react-admin"
+import {Edit, Create, SimpleForm, TextInput, List, TextField, Datagrid} from "react-admin"
+
+export const SubjectsList = () => {
+  return (
+    <List>
+      <Datagrid>
+        <TextField source={"id"}/>
+        <TextField source={"title"}/>
+      </Datagrid>
+    </List>
+  )
+}
 
 
 export const EditSubject = () => {

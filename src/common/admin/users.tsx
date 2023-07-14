@@ -1,4 +1,29 @@
-import {BooleanInput, Create, DateTimeInput, Edit, PasswordInput, required, SimpleForm, TextInput} from "react-admin";
+import {
+  BooleanField,
+  BooleanInput,
+  Create, Datagrid,
+  DateTimeInput,
+  Edit,
+  List,
+  PasswordInput,
+  required,
+  SimpleForm, TextField,
+  TextInput
+} from "react-admin";
+
+
+export const UsersList = () => {
+  return (
+    <List>
+      <Datagrid rowClick="edit">
+        <TextField source="id" />
+        <TextField source="username" />
+        <TextField source="email" />
+        <BooleanField source={"isAdmin"} />
+      </Datagrid>
+    </List>
+  )
+}
 
 export const UserEdit = () => (
   <Edit>

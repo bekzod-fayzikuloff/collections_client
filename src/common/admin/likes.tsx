@@ -1,4 +1,17 @@
-import {Create, Edit, ReferenceInput, SimpleForm} from "react-admin";
+import {Create, Datagrid, Edit, List, ReferenceField, ReferenceInput, SimpleForm, TextField} from "react-admin";
+
+
+export const LikesList = () => {
+  return (
+    <List>
+      <Datagrid>
+        <TextField source={"id"} />
+        <ReferenceField source={'userId'} reference={"users"}/>
+        <ReferenceField source={'itemId'} reference={"items"}/>
+      </Datagrid>
+    </List>
+  )
+}
 
 export const LikeCreate = () => {
   return (
