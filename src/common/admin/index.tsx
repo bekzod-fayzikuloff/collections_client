@@ -7,13 +7,14 @@ import {LikeCreate, LikeEdit, LikesList} from "./likes";
 import {CreateSubject, EditSubject, SubjectsList} from "./subjects";
 import {Dashboard} from "./dashboard";
 import {ItemCreate, ItemEdit, ItemsList} from "./items";
+import {Theme} from "../../shared/types/theme";
 
-export const AdminDashboard = () => {
+export const AdminDashboard = (props: {theme: Theme}) => {
   return (
     <Admin
       basename={"/admin"}
       dataProvider={dataProvider}
-      defaultTheme={"light"}
+      defaultTheme={props.theme}
       dashboard={Dashboard}
 
     >

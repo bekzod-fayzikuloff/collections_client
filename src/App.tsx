@@ -5,6 +5,7 @@ import {Header} from "./components/Header";
 import "./shared/i18n/config"
 import {Route, Routes} from "react-router-dom";
 import {AdminDashboard} from "./common/admin";
+import {Theme} from "./shared/types/theme";
 
 function App() {
   const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -20,7 +21,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
       <Routes>
-        <Route path="/admin/*" element={<AdminDashboard />} />
+        <Route path="/admin/*" element={<AdminDashboard theme={theme as Theme} />} />
         <Route path="/" element={
           <div className={`theme-${theme}`}>
             <Header/>
