@@ -7,7 +7,7 @@ import {
   SimpleForm,
   TextInput,
   required,
-  ReferenceInput
+  ReferenceInput, Create
 } from "react-admin";
 
 export const CommentList = () => {
@@ -34,5 +34,17 @@ export const CommentEdit = () => {
         <ReferenceInput source="itemId" reference="items" name={"items"}/>
       </SimpleForm>
     </Edit>
+  )
+}
+
+export const CommentCreate = () => {
+  return (
+    <Create>
+      <SimpleForm>
+        <TextInput name={"text"} source={"text"} validate={required()} />
+        <ReferenceInput source="userId" reference="users" name={"users"}/>
+        <ReferenceInput source="itemId" reference="items" name={"items"}/>
+      </SimpleForm>
+    </Create>
   )
 }
