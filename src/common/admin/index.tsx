@@ -8,6 +8,8 @@ import {CreateSubject, EditSubject, SubjectsList} from "./subjects";
 import {Dashboard} from "./dashboard";
 import {ItemCreate, ItemEdit, ItemsList} from "./items";
 import {Theme} from "../../shared/types/theme";
+import {i18nProvider} from "./i18nProvider";
+
 
 export const AdminDashboard = (props: {theme: Theme}) => {
   return (
@@ -16,7 +18,7 @@ export const AdminDashboard = (props: {theme: Theme}) => {
       dataProvider={dataProvider}
       defaultTheme={props.theme}
       dashboard={Dashboard}
-
+      i18nProvider={i18nProvider}
     >
       <Resource name="users" list={UsersList} edit={UserEdit} create={UserCreate}/>
       <Resource name={"collections"} list={CollectionList} edit={CollectionEdit} create={CollectionCreate}/>

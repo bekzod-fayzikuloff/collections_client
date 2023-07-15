@@ -25,7 +25,8 @@ export const Header = () => {
         </a>
         <div className="toggle-btn-section">
           <button onClick={() => changeLanguage("en")} >English</button>
-          <button onClick={() => changeLanguage("ru")} >Russian</button>
+          <button onClick={() => changeLanguage("be")} > Беларускі </button>
+          <button onClick={() => changeLanguage("ru")}>Русский</button>
           <div className={`toggle-checkbox m-vertical-auto`}>
             <input
               className="toggle-btn__input"
