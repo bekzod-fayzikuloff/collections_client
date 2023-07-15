@@ -3,7 +3,7 @@ import {Edit, Create, SimpleForm, TextInput, List, TextField, Datagrid} from "re
 export const SubjectsList = () => {
   return (
     <List>
-      <Datagrid>
+      <Datagrid rowClick={"edit"}>
         <TextField source={"id"}/>
         <TextField source={"title"}/>
       </Datagrid>

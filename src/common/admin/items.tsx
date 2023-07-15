@@ -13,7 +13,7 @@ import {
 export const ItemsList = () => {
   return (
     <List>
-      <Datagrid>
+      <Datagrid rowClick={"edit"}>
         <TextField source={'id'}/>
         <TextField source={'title'}/>
         <ReferenceField source={'collectionId'} reference={"collections"}/>
