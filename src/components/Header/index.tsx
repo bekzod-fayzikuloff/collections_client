@@ -1,7 +1,8 @@
-import { useContext } from 'react';
+import {useContext} from 'react';
 import {ThemeContext} from "../../shared/contexts/theme";
 import {useTranslation} from "react-i18next";
 import '../styles.scss';
+
 
 export const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);

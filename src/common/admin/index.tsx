@@ -9,6 +9,7 @@ import {Dashboard} from "./dashboard";
 import {ItemCreate, ItemEdit, ItemsList} from "./items";
 import {Theme} from "../../shared/types/theme";
 import {i18nProvider} from "./i18nProvider";
+import {CustomLayout} from "./layout";
 
 
 export const AdminDashboard = (props: {theme: Theme}) => {
@@ -19,6 +20,7 @@ export const AdminDashboard = (props: {theme: Theme}) => {
       defaultTheme={props.theme}
       dashboard={Dashboard}
       i18nProvider={i18nProvider}
+      layout={CustomLayout}
     >
       <Resource name="users" list={UsersList} edit={UserEdit} create={UserCreate}/>
       <Resource name={"collections"} list={CollectionList} edit={CollectionEdit} create={CollectionCreate}/>
