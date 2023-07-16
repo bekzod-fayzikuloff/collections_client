@@ -1,0 +1,29 @@
+.search__input {
+  padding: 2pt 10pt;
+  border: 1.7px solid #efeded;
+  border-radius: 11pt;
+}
+
+.search__input input[type="search"] {
+  width: 300px;
+  color: white;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: inherit;
+}
+
+.search__input input[type="search"]::placeholder {
+  color: #bbb;
+}
+
+.search__input input[type="search"]:focus {
+  outline: none;
+}
+
+.search__input svg {
+  font-weight: bold;
+  fill: white;
+}

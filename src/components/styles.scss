@@ -1,37 +1,26 @@
 @import '../styles/theme-vars.scss';
 
-/*Header styles*/
 .header {
   width: 100%;
-  padding: 30px;
-  z-index: 99;
   box-shadow: 8px 0 25px rgba(0, 0, 0, 0.05);
   @include themify($themes) {
     background: themed('colorHeaderFooter');
   }
+  @include themify($themes) {
+    color: themed('colorText');
+  }
   .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
-    .logo-section {
-      height: 50px;
-      text-decoration: none;
-      display: flex;
-      width: 430px;
-      @include themify($themes) {
-        color: themed('colorText');
-      }
-      font-weight: 600;
-      text-transform: uppercase;
-      img {
-        width: 50px;
-        height: 50px;
-      }
-      span {
-        display: inline-block;
-        font-size: 30px;
-        margin: auto;
-      }
-    }
+    justify-content: center;
+  }
+}
+
+.layout__main {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+  @include themify($themes) {
+    color: themed('colorText');
   }
 }

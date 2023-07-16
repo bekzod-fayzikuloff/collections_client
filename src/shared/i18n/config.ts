@@ -6,9 +6,11 @@ import {be as beBe} from "./locales/be/translations";
 import {pl as plPl} from "./locales/pl/translations";
 
 
+const defaultLang = localStorage.getItem("lang") || "en"
+
 i18n.use(initReactI18next).init({
-  fallbackLng: "en",
-  lng: "en",
+  fallbackLng: defaultLang,
+  lng: defaultLang,
   resources: {
     en: {
       translations: enEn
