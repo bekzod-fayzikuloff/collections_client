@@ -7,17 +7,20 @@ import {LikeCreate, LikeEdit, LikesList} from "./likes";
 import {CreateSubject, EditSubject, SubjectsList} from "./subjects";
 import {Dashboard} from "./dashboard";
 import {ItemCreate, ItemEdit, ItemsList} from "./items";
-import {Theme} from "../../shared/types/theme";
 import {i18nProvider} from "./i18nProvider";
 import {CustomLayout} from "./layout";
+import {useContext} from "react";
+import {ThemeContext} from "../../shared/contexts/theme";
+import {Theme} from "../../shared/types/theme";
 
 
-export const AdminDashboard = (props: {theme: Theme}) => {
+export const AdminDashboard = () => {
+  const {theme} = useContext(ThemeContext)
   return (
     <Admin
       basename={"/admin"}
       dataProvider={dataProvider}
-      defaultTheme={props.theme}
+      defaultTheme={theme as Theme}
       dashboard={Dashboard}
       i18nProvider={i18nProvider}
       layout={CustomLayout}

@@ -2,44 +2,37 @@ import {useContext} from 'react';
 import {ThemeContext} from "../../shared/contexts/theme";
 import {useTranslation} from "react-i18next";
 import '../styles.scss';
+import {IconButton} from "@mui/material";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 
 export const Header = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
-  const { t, i18n } = useTranslation();
+  const {theme, handleThemeChange} = useContext(ThemeContext);
+  const {t, i18n} = useTranslation();
 
-  const handleThemeChange = () => {
-    const isCurrentDark = theme === 'dark';
-    setTheme(isCurrentDark ? 'light' : 'dark');
-    localStorage.setItem('default-theme', isCurrentDark ? 'light' : 'dark');
-  };
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang)
   }
 
   return (
-    <header className="header">
-      <div className="header-content">
-        <a href="/" className="logo-section">
-          <span>{t('header-title')}</span>
-        </a>
-        <div className="toggle-btn-section">
-          <button onClick={() => changeLanguage("en")} >English</button>
-          <button onClick={() => changeLanguage("be")} > Беларускі </button>
+    <div className={`theme-${theme}`}>
+      <header className="header">
+        <div className="header-content">
+          <a href="/" className="logo-section">
+            <span>{t('header-title')}</span>
+          </a>
+          <button onClick={() => changeLanguage("en")}>English</button>
+          <button onClick={() => changeLanguage("be")}> Беларускі</button>
           <button onClick={() => changeLanguage("ru")}>Русский</button>
-          <div className={`toggle-checkbox m-vertical-auto`}>
-            <input
-              className="toggle-btn__input"
-              type="checkbox"
-              name="checkbox"
-              onChange={handleThemeChange}
-              checked={theme === 'light'}
-            />
-            <button type="button" className={`toggle-btn__input-label`} onClick={handleThemeChange}></button>
-          </div>
+
+          <IconButton sx={{ml: 1}} onClick={handleThemeChange} color="inherit">
+            {theme === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+          </IconButton>
+
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
