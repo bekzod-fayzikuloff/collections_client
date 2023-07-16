@@ -7,7 +7,7 @@ import {NotFound} from "../common/pages/NotFound";
 
 export const AdminRoute = () => {
   const {user} = useContext(AuthContext);
-  const [userIsAdmin, setUserIsAdmin] = useState(user.isAdmin)
+  const [userIsAdmin, setUserIsAdmin] = useState(user?.isAdmin)
 
   useEffect(() => {
     axios.get(`${usersUrl}/${user.userId}`).then(r => {
