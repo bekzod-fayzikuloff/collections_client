@@ -9,7 +9,7 @@ export const AuthContext = createContext<any | null>(null);
 
 type Callable = any
 
-interface Props {
+export interface Props {
   children: React.ReactNode;
 }
 
@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
     setAuthToken(null);
     setUser(null);
     localStorage.removeItem('authToken');
-    navigate('/login');
+    navigate('/sign-in');
   }
 
   const loginUser = async (email: string, password: string, success: Callable, fail: Callable) => {

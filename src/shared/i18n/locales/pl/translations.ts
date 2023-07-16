@@ -56,5 +56,13 @@ export const pl = {
       }
     }
   },
-  "ra.configurable.customize": "Skonfiguruj"
+  "ra.configurable.customize": "Skonfiguruj",
+  pages: {
+    notFound: {
+      notFoundMsg: "Nie znaleziono strony",
+      oops: "Coś nie tak",
+      msg: "Strona, której szukasz, nie istnieje",
+      goHome: "Strona główna"
+    }
+  }
 }

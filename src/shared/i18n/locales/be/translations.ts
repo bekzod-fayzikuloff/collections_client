@@ -59,5 +59,13 @@ export const be = {
       }
     }
   },
-  "header-title": "Светлая і цёмная тэма"
+  "header-title": "Светлая і цёмная тэма",
+  pages: {
+    notFound: {
+      notFoundMsg: "Старонка не знойдзена",
+      oops: "Упс",
+      msg: "Старонкі, якую вы шукаеце, не існуе",
+      goHome: "На галоўную"
+    }
+  }
 }
