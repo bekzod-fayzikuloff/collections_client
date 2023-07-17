@@ -60,7 +60,7 @@ export const Header = () => {
       <div className="header-content">
 
         <div className={style.icon__container}>
-          <img className={style.icon} src={CL} alt="Collections Manager" />
+          <img onClick={() => navigate('/')} className={style.icon} src={CL} alt="Collections Manager" />
         </div>
 
 

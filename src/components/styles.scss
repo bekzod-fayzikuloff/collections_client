@@ -28,3 +28,12 @@
     color: themed('colorText');
   }
 }
+
+.not_found__content {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
