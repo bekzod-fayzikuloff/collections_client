@@ -14,12 +14,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, {SelectChangeEvent} from '@mui/material/Select';
 import {LangContext} from "../../shared/contexts/LangContext";
+import CL from "../../assets/cl.svg"
 
 
 const LangSelect = () => {
-
+  const {t} = useTranslation();
   const {lang, changeLang} = useContext(LangContext)
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -27,18 +28,19 @@ const LangSelect = () => {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small-label">Language</InputLabel>
+    <FormControl sx={{m: 1, minWidth: 120}} size="small">
+      <InputLabel id="demo-select-small-label">{t('common.lang')}</InputLabel>
       <Select
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={lang}
-        label="Language"
+        label={t('common.lang')}
         onChange={handleChange}
       >
         <MenuItem value={'en'}>English</MenuItem>
         <MenuItem value={'be'}>Беларускі</MenuItem>
         <MenuItem value={'ru'}>Русский</MenuItem>
+        <MenuItem value={'pl'}>Polski</MenuItem>
       </Select>
     </FormControl>
   )
@@ -57,25 +59,34 @@ export const Header = () => {
     <header className="header">
       <div className="header-content">
 
-        <p>{t("header-title")}</p>
-        <nav className={style.head__bar}>
+        <div className={style.icon__container}>
+          <img className={style.icon} src={CL} alt="Collections Manager" />
+        </div>
 
-          <form className={style.search__input}>
-            <input type="search" placeholder="Search..."/>
-            <SearchIcon/>
-          </form>
 
-        </nav>
+        <div className={style.search__group}>
+          <nav className={style.head__bar}>
 
-        <LangSelect></LangSelect>
-        <IconButton sx={{ml: 1}} onClick={handleThemeChange}>
-          {theme === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
-        </IconButton>
-        <IconButton sx={{ml: 1}}>
-          {
-            user ? <AccountCircleIcon onClick={() => navigate("/profile")}/> : <LoginIcon/>
-          }
-        </IconButton>
+            <form className={style.search__input}>
+              <input type="search" placeholder={`${t('components.header.search')}...`}/>
+              <SearchIcon/>
+            </form>
+
+          </nav>
+
+        </div>
+
+        <div className={style.actions}>
+          <LangSelect/>
+          <IconButton sx={{ml: 1}} onClick={handleThemeChange}>
+            {theme === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+          </IconButton>
+          <IconButton sx={{ml: 1}}>
+            {
+              user ? <AccountCircleIcon onClick={() => navigate("/profile")}/> : <LoginIcon/>
+            }
+          </IconButton>
+        </div>
       </div>
     </header>
   );

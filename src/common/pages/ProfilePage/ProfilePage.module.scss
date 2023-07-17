@@ -1,0 +1,51 @@
+.root {
+  height: 100vh;
+}
+
+.inner {
+  padding: 10pt;
+}
+
+.collection__set {
+  width: 100%;
+  height: 200px;
+}
+
+.category_title {
+  padding-top: 7pt;
+}
+
+.collection_root {
+  display: flex;
+}
+
+.collection {
+  width: 230px;
+  border: 1px solid gray;
+  height: 130px;
+  margin-right: 7pt;
+  border-radius: 20px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.collection:hover p {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.collection p {
+  padding-top: 18%;
+  text-align: center;
+  height: 100%;
+  border-radius: 20px;
+  background: rgba(157, 193, 217, 0.72);
+  color: #1c1313;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity .2s, visibility .2s;
+}

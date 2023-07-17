@@ -67,5 +67,14 @@ export const ru = {
       msg: "Страницы, которую вы ищете, не существует",
       goHome: "На главную"
     }
+  },
+  components: {
+    header: {
+      search: "Поиск"
+    }
+  },
+  common: {
+    lang: "Язык",
+    collections: "Коллекции"
   }
 }

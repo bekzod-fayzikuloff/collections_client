@@ -1,3 +1,5 @@
+@import '../../styles/theme-vars.scss';
+
 .search__input {
   padding: 2pt 10pt;
   border: 1.7px solid #efeded;
@@ -6,13 +8,22 @@
 
 .search__input input[type="search"] {
   width: 300px;
-  color: white;
   background: transparent;
   margin: 0;
   padding: 7px 8px;
   font-size: 14px;
   border: none;
   border-radius: inherit;
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.actions {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search__input input[type="search"]::placeholder {
@@ -25,5 +36,16 @@
 
 .search__input svg {
   font-weight: bold;
-  fill: white;
+  @include themify($themes) {
+    fill: themed('colorText');
+  }
+}
+
+.icon__container {
+  width: 20%;
+  .icon {
+    width: 32px;
+    height: 32px;
+    margin-left: 10pt;
+  }
 }

@@ -67,5 +67,14 @@ export const be = {
       msg: "Старонкі, якую вы шукаеце, не існуе",
       goHome: "На галоўную"
     }
+  },
+  components: {
+    header: {
+      search: "Пошук"
+    }
+  },
+  common: {
+    lang: "Мова",
+    collections: "Калекцыі"
   }
 }

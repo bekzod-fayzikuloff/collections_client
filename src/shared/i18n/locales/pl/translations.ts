@@ -57,6 +57,7 @@ export const pl = {
     }
   },
   "ra.configurable.customize": "Skonfiguruj",
+  "header-title": "JASNY I CIEMNY TEMAT",
   pages: {
     notFound: {
       notFoundMsg: "Nie znaleziono strony",
@@ -64,5 +65,14 @@ export const pl = {
       msg: "Strona, której szukasz, nie istnieje",
       goHome: "Strona główna"
     }
+  },
+  components: {
+    header: {
+      search: "Szukaj"
+    }
+  },
+  common: {
+    lang: "Język",
+    collections: "Kolekcje"
   }
 }

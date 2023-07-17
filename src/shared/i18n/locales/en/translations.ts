@@ -5,7 +5,7 @@ export const en = {
   admin: {
     collections: "Collections"
   },
-  "header-title": "LIGHT AND DARK MODE APP",
+  "header-title": "CollectionsM",
   pages: {
     notFound: {
       notFoundMsg: "Page not found",
@@ -13,5 +13,14 @@ export const en = {
       msg: "The page you’re looking for doesn’t exist",
       goHome: "Go Home"
     }
+  },
+  components: {
+    header: {
+      search: "Search"
+    }
+  },
+  common: {
+    lang: "Language",
+    collections: "Collections"
   }
 }
