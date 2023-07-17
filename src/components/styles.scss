@@ -39,7 +39,15 @@
     }
   }
 }
-.MuiDataGrid-root, .MuiTablePagination-root, .MuiButtonBase-root, .MuiInputBase-root, .MuiButtonBase-root {
+.MuiDataGrid-root,
+.MuiTablePagination-root,
+.MuiButtonBase-root,
+.MuiInputBase-root,
+.MuiButtonBase-root,
+.MuiPaper-root {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
   @include themify($themes) {
     color: themed('colorText');
   }

@@ -5,7 +5,7 @@ export const collectionsService = {
   getCollections: () => {
     return axios.get(collectionsUrl)
   },
-  getCollection: (id: number) => {
+  getCollection: (id: number | string) => {
     return axios.get(`${collectionsUrl}/${id}`)
   },
   getCollectionItems: (id: number | string) => {
