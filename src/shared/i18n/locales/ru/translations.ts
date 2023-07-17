@@ -75,6 +75,6 @@ export const ru = {
   },
   common: {
     lang: "Язык",
-    collections: "Коллекции"
+    collections: "Коллекции "
   }
 }

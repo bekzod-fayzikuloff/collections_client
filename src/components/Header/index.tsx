@@ -8,6 +8,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import {AuthContext} from "../../shared/contexts/AuthContext";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import {useNavigate} from "react-router-dom";
 import style from "./Header.module.scss"
 import SearchIcon from '@mui/icons-material/Search';
@@ -52,7 +53,11 @@ export const Header = () => {
   const {t} = useTranslation();
   const navigate = useNavigate()
 
-  const {user} = useContext(AuthContext)
+  const {user, logoutUser} = useContext(AuthContext)
+
+  const logoutHandler = () => {
+    logoutUser()
+  }
 
 
   return (
@@ -81,11 +86,21 @@ export const Header = () => {
           <IconButton sx={{ml: 1}} onClick={handleThemeChange}>
             {theme === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
           </IconButton>
-          <IconButton sx={{ml: 1}}>
-            {
-              user ? <AccountCircleIcon onClick={() => navigate("/profile")}/> : <LoginIcon/>
-            }
-          </IconButton>
+          {
+            user ?
+              <>
+                <IconButton onClick={() => navigate("/profile")} sx={{ml: 1}}>
+                  <AccountCircleIcon />
+                </IconButton>
+                <IconButton onClick={logoutHandler} sx={{ml: 1}}>
+                  <LogoutIcon />
+                </IconButton>
+              </>
+              :
+              <IconButton onClick={() => navigate("/sign-in")} sx={{ml: 1}}>
+                <LoginIcon/>
+              </IconButton>
+          }
         </div>
       </div>
     </header>

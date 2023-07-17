@@ -12,6 +12,7 @@ import {MainLayout} from "./common/layouts/Main";
 import {HomePage} from "./common/pages/HomePage/HomePage";
 import {ProfilePage} from "./common/pages/ProfilePage";
 import {LangProvider} from "./shared/contexts/LangContext";
+import {CollectionPage} from "./common/pages/CollectionPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<MainLayout/>}>
               <Route path="/" element={<HomePage/>}/>
               <Route path="/profile" element={<ProfilePage/>}/>
+              <Route path={'/collections/:id'} element={<CollectionPage />} />
             </Route>
             <Route path="/sign-in" element={<SignInPage/>}/>
             <Route path="/sign-up" element={<SignUpPage/>}/>
