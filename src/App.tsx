@@ -20,11 +20,6 @@ function App() {
       <LangProvider>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<MainLayout/>}>
-              <Route path="/" element={<HomePage/>}/>
-              <Route path="/profile" element={<ProfilePage/>}/>
-              <Route path={'/collections/:id'} element={<CollectionPage />} />
-            </Route>
             <Route path="/sign-in" element={<SignInPage/>}/>
             <Route path="/sign-up" element={<SignUpPage/>}/>
 
@@ -33,7 +28,12 @@ function App() {
               <Route path={'*'} element={<AdminDashboard/>}/>
             </Route>
 
-            <Route path="*" element={<NotFound/>}/>
+            <Route path="/" element={<MainLayout/>}>
+              <Route path="/" element={<HomePage/>}/>
+              <Route path="/profile" element={<ProfilePage/>}/>
+              <Route path={'/collections/:id'} element={<CollectionPage />} />
+              <Route path="*" element={<NotFound/>}/>
+            </Route>
           </Routes>
         </AuthProvider>
       </LangProvider>

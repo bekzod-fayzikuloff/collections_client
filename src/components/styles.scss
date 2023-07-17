@@ -29,10 +29,17 @@
   }
 }
 
-.not_found__content {
+.table__container {
   @include themify($themes) {
     background: themed('colorHeaderFooter');
   }
+  tr, th, td {
+    @include themify($themes) {
+      color: themed('colorText');
+    }
+  }
+}
+.MuiDataGrid-root, .MuiTablePagination-root, .MuiButtonBase-root, .MuiInputBase-root, .MuiButtonBase-root {
   @include themify($themes) {
     color: themed('colorText');
   }
