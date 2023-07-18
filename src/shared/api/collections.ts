@@ -1,5 +1,5 @@
 import axios from "axios";
-import {collectionsUrl} from "../constants/endpoints";
+import {collectionsUrl, usersUrl} from "../constants/endpoints";
 
 export const collectionsService = {
   getCollections: () => {
@@ -10,5 +10,8 @@ export const collectionsService = {
   },
   getCollectionItems: (id: number | string) => {
     return axios.get(`${collectionsUrl}/${id}/items`)
+  },
+  getUserCollections: (id: string) => {
+    return axios.get(`${usersUrl}/${id}/collections`)
   }
 }

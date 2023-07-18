@@ -1,0 +1,19 @@
+.drag__drop label {
+  margin: 20pt;
+  min-height: 120pt;
+  padding: 20pt;
+}
+
+.custom__field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4pt;
+}
+
+.cf__root {
+  margin-top: 4pt;
+  border-radius: 4pt;
+  min-height: 20pt;
+  padding: 5pt;
+  border: 1.5pt #386193 dashed;
+}

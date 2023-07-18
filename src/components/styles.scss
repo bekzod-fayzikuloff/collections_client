@@ -52,3 +52,16 @@
     color: themed('colorText');
   }
 }
+
+#mui-rte-root {
+  margin-top: 10pt;
+}
+
+#mui-rte-toolbar {
+  border: 1px solid gray;
+  border-radius: 7pt;
+}
+
+#mui-rte-toolbar + div {
+  position: relative !important;
+}
