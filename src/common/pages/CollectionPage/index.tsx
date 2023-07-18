@@ -47,6 +47,8 @@ const ItemsTable = (props: {items: IItem[]}) => {
       {
         field: "tags",
         headerName: t("common.tags"),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         valueGetter: ({ value }: {value: any}) => {
           return "dsd"
         },
