@@ -57,6 +57,12 @@ export const be = {
         userId: "Карыстальнік",
         itemId: "Прадмет"
       }
+    },
+    tags: {
+      name: "Тэг |||| Тэгі",
+      fields: {
+        title: "Назва"
+      }
     }
   },
   "header-title": "Светлая і цёмная тэма",

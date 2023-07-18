@@ -57,6 +57,12 @@ export const ru = {
         userId: "Пользователь",
         itemId: "Предмет"
       }
+    },
+    tags: {
+      name: "Тэг |||| Тэги",
+      fields: {
+        title: "Название"
+      }
     }
   },
   "header-title": "СВЕТЛАЯ И ТЕМНАЯ ТЕМА",

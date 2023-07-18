@@ -54,6 +54,12 @@ export const pl = {
         userId: "Użytkownik",
         itemId: "Предмет"
       }
+    },
+    tags: {
+      name: "Etykietka |||| Tagi",
+      fields: {
+        title: "Tytuł"
+      }
     }
   },
   "ra.configurable.customize": "Skonfiguruj",
