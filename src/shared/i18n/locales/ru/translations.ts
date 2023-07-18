@@ -75,6 +75,44 @@ export const ru = {
   },
   common: {
     lang: "Язык",
-    collections: "Коллекции "
+    collections: "Коллекции",
+    collection: "Коллекция",
+    title: "Название",
+    tags: "Теги",
+    createdAt: "Создан",
+    view: "Просмотреть",
+    perPage: "Строк на странице",
+    findColumn: "Найти колонку",
+    columnTitle: "Название колонки"
+  },
+  mui: {
+    dataGrid: {
+      density: "Размер",
+      densityLabel: "Размер",
+      densityCompact: "Мальнький",
+      densityStandard: "Средний",
+      densityComfortable: "Большой",
+
+      hideAll: "Скрыть все",
+      showAll: "Показать все",
+      columns: "Колонки",
+
+      filters: "Фильтры",
+      filterBefore: "До",
+      filterContain: "Содержит",
+      filterAfter: "После",
+      filterEquals: "Равно",
+      filterEndsWith: "Оканчивается на",
+      filterIsEmpty: "Пустое",
+      filterNot: "Не",
+      filterStartWith: "Начинается на",
+      filterIsNotEmpty: "Не пустое",
+      filterIsAnyOf: "Любой из",
+      filterInput: "Значение",
+
+      export: "Экспорт",
+      exportPrint: "Распечатать",
+      exportCSV: "Скачать CSV"
+    }
   }
 }

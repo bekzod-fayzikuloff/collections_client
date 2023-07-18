@@ -73,6 +73,45 @@ export const pl = {
   },
   common: {
     lang: "Język",
-    collections: "Kolekcje"
+    collections: "Kolekcje",
+    collection: "Kolekcja",
+    title: "Nazwa",
+    tags: "Tagi",
+    createdAt: "Utworzony",
+    view: "Pogląd",
+    perPage: "Linie na stronę",
+    findColumn: "Znajdź kolumnę",
+    columnTitle: "Nazwa kolumny"
+  },
+  mui: {
+    dataGrid: {
+      density: "Rozmiar",
+      densityLabel: "Rozmiar",
+      densityCompact: "Mały",
+      densityStandard: "Przeciętny",
+      densityComfortable: "Duży",
+
+      hideAll: "Schowaj wszystko",
+      showAll: "Pokaż wszystko",
+      columns: "Głośniki",
+
+      filters: "Filtry",
+      filterBefore: "Zanim",
+      filterContain: "Zawiera",
+      filterAfter: "Po",
+      filterEquals: "Równa się",
+      filterEndsWith: "Kończy się w",
+      filterIsEmpty: "Pusty",
+      filterNot: "Nie",
+      filterStartWith: "Zaczynać z",
+      filterIsNotEmpty: "Nie pusty",
+      filterIsAnyOf: "Którykolwiek z",
+      filterInput: "Oznaczający",
+
+      export: "Eksport",
+      exportPrint: "Wydrukować",
+      exportCSV: "Pobierać CSV"
+
+    }
   }
 }

@@ -75,6 +75,44 @@ export const be = {
   },
   common: {
     lang: "Мова",
-    collections: "Калекцыі"
+    collections: "Калекцыі",
+    collection: "Калекцыя",
+    title: "Назва",
+    tags: "Тэгі",
+    createdAt: "Створаны",
+    view: "Прагледзець",
+    perPage: "Радок на старонцы",
+    findColumn: "Знайсці калонку",
+    columnTitle: "Назва калонкі"
+  },
+  mui: {
+    dataGrid: {
+      density: "Памер",
+      densityLabel: "Памер",
+      densityCompact: "Маленькі",
+      densityStandard: "Сярэдні",
+      densityComfortable: "Вялікі",
+
+      hideAll: "Схаваць усё",
+      showAll: "Паказаць усе",
+      columns: "Калонкі",
+
+      filters: "Фільтры",
+      filterBefore: "Да",
+      filterContain: "Змяшчае",
+      filterAfter: "Пасля",
+      filterEquals: "Роўна",
+      filterEndsWith: "Сканчаецца на",
+      filterIsEmpty: "Пустое",
+      filterNot: "Ня",
+      filterStartWith: "Пачынаецца на",
+      filterIsNotEmpty: "Ня пустое",
+      filterIsAnyOf: "Любы з",
+      filterInput: "Значэнне",
+
+      export: "Экспарт",
+      exportPrint: "Надрукаваць",
+      exportCSV: "Спампаваць CSV"
+    }
   }
 }

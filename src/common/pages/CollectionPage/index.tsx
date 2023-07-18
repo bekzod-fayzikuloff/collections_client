@@ -1,5 +1,5 @@
 import style from "./CollectionPage.module.scss"
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState, useMemo, useContext} from "react";
 import {api} from "../../../shared/api";
 import {IItem} from "../../../shared/types/items";
@@ -18,21 +18,27 @@ import parse from "html-react-parser"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import {AuthContext} from "../../../shared/contexts/AuthContext";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import {IconButton} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
-const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags"];
+const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags", "actions"];
 
 const ItemsTable = (props: {items: IItem[]}) => {
+  const navigate = useNavigate()
+  const {t} = useTranslation()
+
   const itemsData: {columns:  GridColDef[], rows: IItem[]} = {
     columns: [
       {
         field: "id", headerName: "Id", flex: 1
       },
       {
-        field: "title", headerName: "Title", flex: 1
+        field: "title", headerName: t("common.title"), flex: 1
       },
       {
         field: "collection",
-        headerName: "Collection",
+        headerName: t("common.collection"),
         valueGetter: ({ value }: {value: ICollection}) => {
           return value?.title
         },
@@ -40,14 +46,23 @@ const ItemsTable = (props: {items: IItem[]}) => {
       },
       {
         field: "tags",
-        headerName: "tags",
+        headerName: t("common.tags"),
         valueGetter: ({ value }: {value: any}) => {
           return "dsd"
         },
         flex: 1
       },
       {
-        field: "createdAt", headerName: "Created At", flex: 1
+        field: "createdAt", headerName: t("common.createdAt"), flex: 1
+      },
+      {
+        field: "actions", headerName: t("common.view"), flex: 1, renderCell: (params) => {
+          return (
+            <IconButton onClick={() => navigate(`/items/${params.row.id}`)} sx={{ml: 1}}>
+              <RemoveRedEyeIcon />
+            </IconButton>
+          );
+        }
       }
     ],
 
@@ -64,11 +79,49 @@ const ItemsTable = (props: {items: IItem[]}) => {
         {...itemsData}
         columns={columns}
         slots={{ toolbar: GridToolbar }}
+        localeText={{
+          columnsPanelTextFieldLabel: t("common.findColumn"),
+          columnsPanelTextFieldPlaceholder: t("common.columnTitle"),
+          columnsPanelHideAllButton: t("mui.dataGrid.hideAll"),
+          columnsPanelShowAllButton: t("mui.dataGrid.showAll"),
+          toolbarColumns: t("mui.dataGrid.columns"),
+
+          toolbarFilters: t("mui.dataGrid.filters"),
+          filterOperatorBefore: t("mui.dataGrid.filterBefore"),
+          filterOperatorContains: t("mui.dataGrid.filterContain"),
+          filterOperatorAfter: t("mui.dataGrid.filterAfter"),
+          filterOperatorEquals: t("mui.dataGrid.filterEquals"),
+          filterOperatorEndsWith: t("mui.dataGrid.filterEndsWith"),
+          filterOperatorIsEmpty: t("mui.dataGrid.filterIsEmpty"),
+          filterOperatorNot: t("mui.dataGrid.filterNot"),
+          filterOperatorStartsWith: t("mui.dataGrid.filterStartWith"),
+          filterOperatorIsNotEmpty: t("mui.dataGrid.filterIsNotEmpty"),
+          filterOperatorIsAnyOf: t("mui.dataGrid.filterIsAnyOf"),
+          filterPanelColumns: t("common.columnTitle"),
+          filterPanelOperator: t("common.columnTitle"),
+          filterPanelInputLabel: t("mui.dataGrid.filterInput"),
+          filterPanelInputPlaceholder: t("mui.dataGrid.filterInput"),
+
+          toolbarExport: t("mui.dataGrid.export"),
+          toolbarExportPrint: t("mui.dataGrid.exportPrint"),
+          toolbarExportCSV: t("mui.dataGrid.exportCSV"),
+
+          toolbarDensity: t("mui.dataGrid.density"),
+          toolbarDensityLabel: t("mui.dataGrid.densityLabel"),
+          toolbarDensityCompact: t("mui.dataGrid.densityCompact"),
+          toolbarDensityStandard: t("mui.dataGrid.densityStandard"),
+          toolbarDensityComfortable: t("mui.dataGrid.densityComfortable"),
+
+          toolbarQuickFilterPlaceholder: t("components.header.search")
+        }}
         slotProps={{
           toolbar: {
             showQuickFilter: true,
             quickFilterProps: { debounceMs: 500 },
           },
+          pagination: {
+            labelRowsPerPage: t("common.perPage")
+          }
         }}
       />
     </Box>
@@ -78,7 +131,9 @@ const ItemsTable = (props: {items: IItem[]}) => {
 const CollectionContent = (props: {items: IItem[], collection: ICollection | null}) => {
   const {items, collection} = props
   const {user} = useContext(AuthContext)
-
+  const {t} = useTranslation()
+  console.log(collection)
+  console.log(user)
   return (
     <div className={style.root}>
       <div className={style.collection__detail}>
@@ -101,10 +156,10 @@ const CollectionContent = (props: {items: IItem[], collection: ICollection | nul
             user.userId === collection?.userId &&
               <CardActions>
                   <Button variant="outlined" color={"error"} startIcon={<DeleteIcon />}>
-                      Delete
+                    {t('ra.action.delete')}
                   </Button>
                   <Button variant="outlined" color={"info"} startIcon={<EditIcon />}>
-                      Edit
+                    {t('ra.action.edit')}
                   </Button>
               </CardActions>
           }

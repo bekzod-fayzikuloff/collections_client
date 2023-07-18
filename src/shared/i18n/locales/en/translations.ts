@@ -21,6 +21,44 @@ export const en = {
   },
   common: {
     lang: "Language",
-    collections: "Collections"
+    collections: "Collections",
+    collection: "Collection",
+    title: "Title",
+    tags: "Tags",
+    createdAt: "Created At",
+    view: "View",
+    perPage: "Rows per page",
+    findColumn: "Find Column",
+    columnTitle: "Column Title"
+  },
+  mui: {
+    dataGrid: {
+      density: "Size",
+      densityLabel: "Size",
+      densityCompact: "Small",
+      densityStandard: "Medium",
+      densityComfortable: "Large",
+
+      hideAll: "Hide all",
+      showAll: "Show all",
+      columns: "Columns",
+
+      filters: "Filters",
+      filterBefore: "Before",
+      filterContain: "Contain",
+      filterAfter: "After",
+      filterEquals: "Equals",
+      filterEndsWith: "End with",
+      filterIsEmpty: "Is empty",
+      filterNot: "Not",
+      filterStartWith: "Start with",
+      filterIsNotEmpty: "Is not empty",
+      filterIsAnyOf: "Is any of",
+      filterInput: "Value",
+
+      export: "Export",
+      exportPrint: "Print",
+      exportCSV: "Download CSV"
+    }
   }
 }
