@@ -29,7 +29,10 @@ export const en = {
     view: "View",
     perPage: "Rows per page",
     findColumn: "Find Column",
-    columnTitle: "Column Title"
+    columnTitle: "Column Title",
+    author: "Author",
+    item: "Item",
+    biggestCollections: "The largest collections"
   },
   mui: {
     dataGrid: {

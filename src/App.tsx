@@ -9,7 +9,7 @@ import {AdminRoute} from "./components/AdminRoute";
 import {AuthProvider} from "./shared/contexts/AuthContext";
 import {NotFound} from "./common/pages/NotFound";
 import {MainLayout} from "./common/layouts/Main";
-import {HomePage} from "./common/pages/HomePage/HomePage";
+import {HomePage} from "./common/pages/HomePage";
 import {ProfilePage} from "./common/pages/ProfilePage";
 import {LangProvider} from "./shared/contexts/LangContext";
 import {CollectionPage} from "./common/pages/CollectionPage";

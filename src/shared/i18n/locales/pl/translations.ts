@@ -52,7 +52,7 @@ export const pl = {
       name: "Mark lubi |||| Ulubione",
       fields: {
         userId: "Użytkownik",
-        itemId: "Предмет"
+        itemId: "Przedmiot"
       }
     },
     tags: {
@@ -87,7 +87,10 @@ export const pl = {
     view: "Pogląd",
     perPage: "Linie na stronę",
     findColumn: "Znajdź kolumnę",
-    columnTitle: "Nazwa kolumny"
+    columnTitle: "Nazwa kolumny",
+    author: "Autor",
+    item: "Przedmiot",
+    biggestCollections: "Największe kolekcje"
   },
   mui: {
     dataGrid: {

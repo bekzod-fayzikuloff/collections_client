@@ -89,7 +89,10 @@ export const be = {
     view: "Прагледзець",
     perPage: "Радок на старонцы",
     findColumn: "Знайсці калонку",
-    columnTitle: "Назва калонкі"
+    columnTitle: "Назва калонкі",
+    author: "Аўтар",
+    item: "Прадмет",
+    biggestCollections: "Самыя вялікія калекцыі"
   },
   mui: {
     dataGrid: {

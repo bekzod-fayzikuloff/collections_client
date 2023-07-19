@@ -89,7 +89,10 @@ export const ru = {
     view: "Просмотреть",
     perPage: "Строк на странице",
     findColumn: "Найти колонку",
-    columnTitle: "Название колонки"
+    columnTitle: "Название колонки",
+    author: "Автор",
+    item: "Предмет",
+    biggestCollections: "Самые большие коллекции"
   },
   mui: {
     dataGrid: {

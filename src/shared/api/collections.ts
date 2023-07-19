@@ -13,5 +13,8 @@ export const collectionsService = {
   },
   getUserCollections: (id: string) => {
     return axios.get(`${usersUrl}/${id}/collections`)
+  },
+  getBiggestCollections: (limit: number) => {
+    return axios.get(`${collectionsUrl}?biggest=${limit}`)
   }
 }
