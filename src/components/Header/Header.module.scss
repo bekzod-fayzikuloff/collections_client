@@ -49,3 +49,13 @@
     margin-left: 10pt;
   }
 }
+
+.search__result {
+  z-index: 10;
+  background-color: white;
+  border-bottom-left-radius: 10pt;
+  border-bottom-right-radius: 10pt;
+  color: #000000;
+  position: absolute;
+  width: 350px;
+}

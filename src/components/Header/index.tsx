@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {ChangeEvent, useContext, useEffect, useState} from 'react';
 import {ThemeContext} from "../../shared/contexts/theme";
 import {useTranslation} from "react-i18next";
 import '../styles.scss';
@@ -19,6 +19,7 @@ import Select, {SelectChangeEvent} from '@mui/material/Select';
 import {LangContext} from "../../shared/contexts/LangContext";
 import CL from "../../assets/cl.svg"
 import {useConfirm} from "material-ui-confirm";
+import {api} from "../../shared/api";
 
 
 const LangSelect = () => {
@@ -54,6 +55,9 @@ export const Header = () => {
   const {t} = useTranslation();
   const navigate = useNavigate()
   const confirm = useConfirm();
+  const [query, setQuery] = useState('')
+  const [searchResult, setSearchResult] = useState([])
+  const [isExistItems, setIsExistItems] = useState(false)
 
   const {user, logoutUser} = useContext(AuthContext)
 
@@ -66,6 +70,19 @@ export const Header = () => {
     }).then(() => {logoutUser()})
   }
 
+  useEffect(() => {
+    api.getItemFilter(query).then(r => {
+      setSearchResult(r.data)
+    })
+    if (query && searchResult.length > 0) {
+      setIsExistItems(true)
+    } else setIsExistItems(false)
+
+  }, [query, searchResult.length])
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value)
+  }
 
   return (
     <header className="header">
@@ -75,16 +92,30 @@ export const Header = () => {
           <img onClick={() => navigate('/')} className={style.icon} src={CL} alt="Collections Manager" />
         </div>
 
-
         <div className={style.search__group}>
           <nav className={style.head__bar}>
 
             <form className={style.search__input}>
-              <input type="search" placeholder={`${t('components.header.search')}...`}/>
+              <input onChange={handleSearch} type="search" placeholder={`${t('components.header.search')}...`}/>
               <SearchIcon/>
             </form>
 
           </nav>
+          {
+            isExistItems
+              &&
+
+              <div className={style.search__result}>
+                {searchResult.map((itemIndex: any) => {
+                  return (
+                    <p onClick={() => navigate(`/items/${itemIndex?._source?.id}`)} key={itemIndex?._source?.id}>
+                      {itemIndex?._source?.title}
+                    </p>
+                  )
+                })}
+              </div>
+          }
+
 
         </div>
 

@@ -14,6 +14,7 @@ import {ProfilePage} from "./common/pages/ProfilePage";
 import {LangProvider} from "./shared/contexts/LangContext";
 import {CollectionPage} from "./common/pages/CollectionPage";
 import {ConfirmProvider} from "material-ui-confirm";
+import {ItemPage} from "./common/pages/ItemPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/" element={<HomePage/>}/>
               <Route path="/profile" element={<ProfilePage/>}/>
               <Route path={'/collections/:id'} element={<CollectionPage />} />
+              <Route path={'/items/:id'} element={<ItemPage />} />
               <Route path="*" element={<NotFound/>}/>
             </Route>
           </Routes>
