@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 import MUIRichTextEditor from "mui-rte";
 import { ThemeProvider } from '@mui/material/styles'
 import { FileUploader } from "react-drag-drop-files";
-import style from "./CollectionCreate.module.scss"
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import {useTranslation} from "react-i18next";
@@ -14,23 +13,26 @@ import {IconButton} from "@mui/material";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import {CustomField} from "../../shared/types/collections";
-import {fileTypes, modalCloseSX, modalSX, sheetSX} from "../../shared/constants/modal";
 import {theme} from "../../shared/constants/rte";
+import style from "../CollectionCreate/CollectionCreate.module.scss"
+import {CustomField, ICollection} from "../../shared/types/collections";
+import {fileTypes, modalCloseSX, modalSX, sheetSX} from "../../shared/constants/modal";
+import EditIcon from "@mui/icons-material/Edit";
 
 
-export const AddCollectionModal = (props: {open: boolean, setOpen: Dispatch<SetStateAction<boolean>>}) => {
-  const {t} = useTranslation()
+export const ChangeCollectionModal = (props: {open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, collection: ICollection}) => {
   const [customFields, setCustomFields] = useState<CustomField[]>([])
   const {open, setOpen} = props
+  const {t} = useTranslation()
+
   return (
     <>
       <Modal
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
         open={open}
-        onClose={() => setOpen(false)}
         sx={modalSX}
+        onClose={() => setOpen(false)}
       >
         <Sheet
           variant="outlined"
@@ -41,11 +43,11 @@ export const AddCollectionModal = (props: {open: boolean, setOpen: Dispatch<SetS
             sx={modalCloseSX}
           />
           <TextField
-            placeholder={"Collection Title"}
             sx={{width: 1}}
+            placeholder={"Collection Title"}
             hiddenLabel
             id="filled-hidden-label-small"
-            defaultValue=""
+            defaultValue="klkl"
             variant="filled"
             size="small"
           />
@@ -70,33 +72,33 @@ export const AddCollectionModal = (props: {open: boolean, setOpen: Dispatch<SetS
           </Select>
 
           <div className={style.cf__root}>
-          {
-            customFields.map((cf, id) => {
-              return (
-                <div className={style.custom__field} key={id}>
-                  <TextField
-                    hiddenLabel
-                    placeholder={"Custom Field Title"}
-                    id="filled-hidden-label-small"
-                    value={cf.title}
-                    variant="filled"
-                    size="small"
-                  />
-                  <TextField
-                    hiddenLabel
-                    placeholder={"Custom Field Type"}
-                    id="filled-hidden-label-small"
-                    defaultValue=""
-                    variant="filled"
-                    size="small"
-                  />
-                  <IconButton>
-                    <HighlightOffIcon />
-                  </IconButton>
-                </div>
-              )
-            })
-          }
+            {
+              customFields.map((cf, id) => {
+                return (
+                  <div className={style.custom__field} key={id}>
+                    <TextField
+                      hiddenLabel
+                      placeholder={"Custom Field Title"}
+                      id="filled-hidden-label-small"
+                      value={cf.title}
+                      variant="filled"
+                      size="small"
+                    />
+                    <TextField
+                      hiddenLabel
+                      placeholder={"Custom Field Type"}
+                      id="filled-hidden-label-small"
+                      defaultValue=""
+                      variant="filled"
+                      size="small"
+                    />
+                    <IconButton>
+                      <HighlightOffIcon />
+                    </IconButton>
+                  </div>
+                )
+              })
+            }
           </div>
 
           <IconButton onClick={() => {
@@ -111,9 +113,9 @@ export const AddCollectionModal = (props: {open: boolean, setOpen: Dispatch<SetS
             className={style.add__btn}
             variant="contained"
             color={"success"}
-            startIcon={<AddIcon />}
+            startIcon={<EditIcon />}
           >
-            {t("ra.action.add")}
+            {t("ra.action.save")}
           </Button>
         </Sheet>
 

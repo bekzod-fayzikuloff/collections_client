@@ -95,6 +95,9 @@ export const pl = {
       delete: {
         title: "Jesteś pewny",
         collection: "Czy chcesz usunąć kolekcję"
+      },
+      logout: {
+        dialog: "Czy na pewno chcesz się wylogować ze swojego konta?"
       }
     }
   },

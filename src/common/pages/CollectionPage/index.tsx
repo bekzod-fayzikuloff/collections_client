@@ -23,6 +23,8 @@ import {IconButton} from "@mui/material";
 import {useTranslation} from "react-i18next";
 import {useConfirm} from "material-ui-confirm";
 import AddIcon from '@mui/icons-material/Add';
+import {ChangeCollectionModal} from "../../../components/CollectionEdit";
+import {ItemCreateModal} from "../../../components/ItemCreate";
 
 const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags", "actions"];
 
@@ -138,6 +140,8 @@ const CollectionContent = (props: { items: IItem[], collection: ICollection | nu
   const {t} = useTranslation()
   const navigate = useNavigate()
   const confirm = useConfirm();
+  const [editOpen, setEditOpen] = useState<boolean>(false);
+  const [createOpen, setCreateOpen] = useState<boolean>(false)
 
   const handleDelete = () => {
     confirm({
@@ -183,13 +187,14 @@ const CollectionContent = (props: { items: IItem[], collection: ICollection | nu
                       <Button onClick={handleDelete} variant="outlined" color={"error"} startIcon={<DeleteIcon/>}>
                         {t('ra.action.delete')}
                       </Button>
-                      <Button variant="outlined" color={"info"} startIcon={<EditIcon/>}>
+                      <Button onClick={() => setEditOpen(true)} variant="outlined" color={"info"} startIcon={<EditIcon/>}>
                         {t('ra.action.edit')}
                       </Button>
-                      <Button variant="outlined" color={"info"} startIcon={<AddIcon/>}>
+                      <Button onClick={() => setCreateOpen(true)} variant="outlined" color={"info"} startIcon={<AddIcon/>}>
                         {`${t('ra.action.create')} ${t("common.item")}`}
                       </Button>
-
+                      <ChangeCollectionModal open={editOpen} setOpen={setEditOpen} collection={collection as ICollection} />
+                      <ItemCreateModal open={createOpen} setOpen={setCreateOpen} />
                   </CardActions>
               </>
           }

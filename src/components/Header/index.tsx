@@ -18,6 +18,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
 import {LangContext} from "../../shared/contexts/LangContext";
 import CL from "../../assets/cl.svg"
+import {useConfirm} from "material-ui-confirm";
 
 
 const LangSelect = () => {
@@ -52,11 +53,17 @@ export const Header = () => {
   const {theme, handleThemeChange} = useContext(ThemeContext);
   const {t} = useTranslation();
   const navigate = useNavigate()
+  const confirm = useConfirm();
 
   const {user, logoutUser} = useContext(AuthContext)
 
   const logoutHandler = () => {
-    logoutUser()
+    confirm({
+      title: `${t("common.actions.delete.title")} ?`,
+      description: `${t("common.actions.logout.dialog")} ?`,
+      confirmationText: t("ra.action.confirm"),
+      cancellationText: t("ra.action.cancel")
+    }).then(() => {logoutUser()})
   }
 
 

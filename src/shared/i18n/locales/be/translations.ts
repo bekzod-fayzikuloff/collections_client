@@ -97,6 +97,9 @@ export const be = {
       delete: {
         title: "Вы ўпэўнены",
         collection: "Вы хочаце выдаліць калекцыю"
+      },
+      logout: {
+        dialog: "Вы сапраўды хочаце выйсці з акаўнта"
       }
     }
   },

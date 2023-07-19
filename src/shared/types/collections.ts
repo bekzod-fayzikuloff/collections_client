@@ -2,6 +2,8 @@ interface IUser {
   username: string
 }
 
+export type CustomField = {title: string, type: string}
+
 export interface IBiggestCollection {
   itemsCount: number;
   collection: ICollection

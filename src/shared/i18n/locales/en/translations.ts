@@ -37,6 +37,9 @@ export const en = {
       delete: {
         title: "Are you sure",
         collection: "Do you want to remove the collection"
+      },
+      logout: {
+        dialog: "Are you sure you want to log out of your account?"
       }
     }
   },
