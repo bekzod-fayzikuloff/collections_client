@@ -21,14 +21,16 @@ import {AuthContext} from "../../../shared/contexts/AuthContext";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import {IconButton} from "@mui/material";
 import {useTranslation} from "react-i18next";
+import {useConfirm} from "material-ui-confirm";
+import AddIcon from '@mui/icons-material/Add';
 
 const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags", "actions"];
 
-const ItemsTable = (props: {items: IItem[]}) => {
+const ItemsTable = (props: { items: IItem[] }) => {
   const navigate = useNavigate()
   const {t} = useTranslation()
 
-  const itemsData: {columns:  GridColDef[], rows: IItem[]} = {
+  const itemsData: { columns: GridColDef[], rows: IItem[] } = {
     columns: [
       {
         field: "id", headerName: "Id", flex: 1
@@ -39,7 +41,7 @@ const ItemsTable = (props: {items: IItem[]}) => {
       {
         field: "collection",
         headerName: t("common.collection"),
-        valueGetter: ({ value }: {value: ICollection}) => {
+        valueGetter: ({value}: { value: ICollection }) => {
           return value?.title
         },
         flex: 1
@@ -49,7 +51,7 @@ const ItemsTable = (props: {items: IItem[]}) => {
         headerName: t("common.tags"),
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        valueGetter: ({ value }: {value: any}) => {
+        valueGetter: ({value}: { value: any }) => {
           return "dsd"
         },
         flex: 1
@@ -61,7 +63,7 @@ const ItemsTable = (props: {items: IItem[]}) => {
         field: "actions", headerName: t("common.view"), flex: 1, renderCell: (params) => {
           return (
             <IconButton onClick={() => navigate(`/items/${params.row.id}`)} sx={{ml: 1}}>
-              <RemoveRedEyeIcon />
+              <RemoveRedEyeIcon/>
             </IconButton>
           );
         }
@@ -76,11 +78,11 @@ const ItemsTable = (props: {items: IItem[]}) => {
   );
 
   return (
-    <Box sx={{ width: 1}}>
+    <Box sx={{width: 1}}>
       <DataGrid
         {...itemsData}
         columns={columns}
-        slots={{ toolbar: GridToolbar }}
+        slots={{toolbar: GridToolbar}}
         localeText={{
           columnsPanelTextFieldLabel: t("common.findColumn"),
           columnsPanelTextFieldPlaceholder: t("common.columnTitle"),
@@ -119,7 +121,7 @@ const ItemsTable = (props: {items: IItem[]}) => {
         slotProps={{
           toolbar: {
             showQuickFilter: true,
-            quickFilterProps: { debounceMs: 500 },
+            quickFilterProps: {debounceMs: 500},
           },
           pagination: {
             labelRowsPerPage: t("common.perPage")
@@ -130,18 +132,38 @@ const ItemsTable = (props: {items: IItem[]}) => {
   );
 }
 
-const CollectionContent = (props: {items: IItem[], collection: ICollection | null}) => {
+const CollectionContent = (props: { items: IItem[], collection: ICollection | null }) => {
   const {items, collection} = props
   const {user} = useContext(AuthContext)
   const {t} = useTranslation()
-  console.log(collection)
-  console.log(user)
+  const navigate = useNavigate()
+  const confirm = useConfirm();
+
+  const handleDelete = () => {
+    confirm({
+      title: `${t("common.actions.delete.title")} ?`,
+      description: `${t("common.actions.delete.collection")} ?`,
+      confirmationText: t("ra.action.confirm"),
+      cancellationText: t("ra.action.cancel")
+    })
+      .then(() => {
+        api.deleteCollection(collection?.id as number).then(() => {
+            navigate("/")
+          }
+        ).catch(() => {
+            //
+          }
+        )
+      })
+  };
+
+
   return (
     <div className={style.root}>
       <div className={style.collection__detail}>
-        <Card sx={{ maxWidth: 1 }}>
+        <Card sx={{maxWidth: 1}}>
           <CardMedia
-            sx={{ height: 250 }}
+            sx={{height: 250}}
             image={NoImage}
             title="collection image"
           />
@@ -156,14 +178,20 @@ const CollectionContent = (props: {items: IItem[], collection: ICollection | nul
 
           {
             user.userId === collection?.userId &&
-              <CardActions>
-                  <Button variant="outlined" color={"error"} startIcon={<DeleteIcon />}>
-                    {t('ra.action.delete')}
-                  </Button>
-                  <Button variant="outlined" color={"info"} startIcon={<EditIcon />}>
-                    {t('ra.action.edit')}
-                  </Button>
-              </CardActions>
+              <>
+                  <CardActions>
+                      <Button onClick={handleDelete} variant="outlined" color={"error"} startIcon={<DeleteIcon/>}>
+                        {t('ra.action.delete')}
+                      </Button>
+                      <Button variant="outlined" color={"info"} startIcon={<EditIcon/>}>
+                        {t('ra.action.edit')}
+                      </Button>
+                      <Button variant="outlined" color={"info"} startIcon={<AddIcon/>}>
+                        {`${t('ra.action.create')} ${t("common.item")}`}
+                      </Button>
+
+                  </CardActions>
+              </>
           }
 
         </Card>
@@ -175,7 +203,7 @@ const CollectionContent = (props: {items: IItem[], collection: ICollection | nul
 
 
 export const CollectionPage = () => {
-  const { id } = useParams()
+  const {id} = useParams()
   const [items, setItems] = useState<IItem[]>([])
   const [collection, setCollection] = useState<ICollection | null>(null)
   const [isNotFound, setIsNotFound] = useState(false)
@@ -195,9 +223,9 @@ export const CollectionPage = () => {
   return (
     <>
       {
-       isNotFound ?
-         <NotFound />
-         : <CollectionContent items={items} collection={collection} />
+        isNotFound ?
+          <NotFound/>
+          : <CollectionContent items={items} collection={collection}/>
       }
     </>
   )

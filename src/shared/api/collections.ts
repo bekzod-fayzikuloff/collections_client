@@ -16,5 +16,12 @@ export const collectionsService = {
   },
   getBiggestCollections: (limit: number) => {
     return axios.get(`${collectionsUrl}?biggest=${limit}`)
+  },
+  deleteCollection: (id: number) => {
+    return axios.delete(`${collectionsUrl}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('authToken') as string).accessToken}`
+      }
+    })
   }
 }

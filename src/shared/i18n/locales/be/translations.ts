@@ -92,7 +92,13 @@ export const be = {
     columnTitle: "Назва калонкі",
     author: "Аўтар",
     item: "Прадмет",
-    biggestCollections: "Самыя вялікія калекцыі"
+    biggestCollections: "Самыя вялікія калекцыі",
+    actions: {
+      delete: {
+        title: "Вы ўпэўнены",
+        collection: "Вы хочаце выдаліць калекцыю"
+      }
+    }
   },
   mui: {
     dataGrid: {

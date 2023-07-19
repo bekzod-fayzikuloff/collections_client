@@ -34,13 +34,13 @@ const LatestItems = () => {
                 primary={<>
                   <p>{t('common.item')}:
                     <span className={style.active__link} onClick={() => {
-                      navigate(`/collections/${item.collectionId}`)
+                      navigate(`/items/${item.id}`)
                     }}
                     >{item.title}</span>
                   </p>
                   <>{t('common.collection')}: <span className={style.active__link} onClick={() => {
                     navigate(`/collections/${item.collectionId}`)
-                  }}>{item.collection.title}</span> {t('common.author')}: {item.collection.user?.username}</>
+                  }}>{item.collection?.title}</span> {t('common.author')}: {item.collection?.user?.username}</>
                 </>
                 }
               />
@@ -76,16 +76,16 @@ const BiggestCollection = () => {
             collections.map(collection => (
               <div
                 style={
-                  collection.collection.image ? {
+                  collection.collection?.image ? {
                       backgroundImage: `url(${collection.collection.image})`,
                     } :
                     {
                       backgroundImage: `url(${NoImage})`,
                     }
                 }
-                onClick={() => navigate(`/collections/${collection.collection.id}`)} key={collection.collection.id}
+                onClick={() => navigate(`/collections/${collection.collection?.id}`)} key={collection.collection?.id}
                 className={style.collection}>
-                <p>{collection.collection.title}</p>
+                <p>{collection.collection?.title}</p>
               </div>
             ))
           }

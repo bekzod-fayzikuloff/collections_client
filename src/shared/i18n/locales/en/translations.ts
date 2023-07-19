@@ -32,7 +32,13 @@ export const en = {
     columnTitle: "Column Title",
     author: "Author",
     item: "Item",
-    biggestCollections: "The largest collections"
+    biggestCollections: "The largest collections",
+    actions: {
+      delete: {
+        title: "Are you sure",
+        collection: "Do you want to remove the collection"
+      }
+    }
   },
   mui: {
     dataGrid: {

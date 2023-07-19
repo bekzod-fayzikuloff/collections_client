@@ -13,12 +13,14 @@ import {HomePage} from "./common/pages/HomePage";
 import {ProfilePage} from "./common/pages/ProfilePage";
 import {LangProvider} from "./shared/contexts/LangContext";
 import {CollectionPage} from "./common/pages/CollectionPage";
+import {ConfirmProvider} from "material-ui-confirm";
 
 function App() {
   return (
     <ThemeProvider>
       <LangProvider>
         <AuthProvider>
+          <ConfirmProvider>
           <Routes>
             <Route path="/sign-in" element={<SignInPage/>}/>
             <Route path="/sign-up" element={<SignUpPage/>}/>
@@ -35,6 +37,7 @@ function App() {
               <Route path="*" element={<NotFound/>}/>
             </Route>
           </Routes>
+          </ConfirmProvider>
         </AuthProvider>
       </LangProvider>
     </ThemeProvider>

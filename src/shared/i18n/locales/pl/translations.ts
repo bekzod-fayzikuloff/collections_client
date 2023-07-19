@@ -90,7 +90,13 @@ export const pl = {
     columnTitle: "Nazwa kolumny",
     author: "Autor",
     item: "Przedmiot",
-    biggestCollections: "Największe kolekcje"
+    biggestCollections: "Największe kolekcje",
+    actions: {
+      delete: {
+        title: "Jesteś pewny",
+        collection: "Czy chcesz usunąć kolekcję"
+      }
+    }
   },
   mui: {
     dataGrid: {
@@ -120,7 +126,6 @@ export const pl = {
       export: "Eksport",
       exportPrint: "Wydrukować",
       exportCSV: "Pobierać CSV"
-
     }
   }
 }

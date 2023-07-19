@@ -92,7 +92,13 @@ export const ru = {
     columnTitle: "Название колонки",
     author: "Автор",
     item: "Предмет",
-    biggestCollections: "Самые большие коллекции"
+    biggestCollections: "Самые большие коллекции",
+    actions: {
+      delete: {
+        title: "Вы уверены",
+        collection: "Вы хотите удалить коллекцию"
+      }
+    }
   },
   mui: {
     dataGrid: {
