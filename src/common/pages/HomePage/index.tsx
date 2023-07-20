@@ -25,7 +25,7 @@ const LatestItems = () => {
 
   return (
     <div>
-      <h3 className={style.latest__headline}>Latest items</h3>
+      <h3 className={style.latest__headline}>{t("common.latest")}</h3>
       <List sx={{width: '100%'}}>
         {latestItems.map(item => (
           <Fragment key={item.id}>

@@ -93,6 +93,7 @@ export const be = {
     author: "Аўтар",
     item: "Прадмет",
     biggestCollections: "Самыя вялікія калекцыі",
+    latest: "Апошнія дададзеныя прадметы",
     actions: {
       delete: {
         title: "Вы ўпэўнены",

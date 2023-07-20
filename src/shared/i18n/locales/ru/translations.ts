@@ -93,6 +93,7 @@ export const ru = {
     author: "Автор",
     item: "Предмет",
     biggestCollections: "Самые большие коллекции",
+    latest: "Последние добавленные предметы",
     actions: {
       delete: {
         title: "Вы уверены",

@@ -33,6 +33,7 @@ export const en = {
     author: "Author",
     item: "Item",
     biggestCollections: "The largest collections",
+    latest: "Recently added items",
     actions: {
       delete: {
         title: "Are you sure",

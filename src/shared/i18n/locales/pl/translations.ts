@@ -91,6 +91,7 @@ export const pl = {
     author: "Autor",
     item: "Przedmiot",
     biggestCollections: "Największe kolekcje",
+    latest: "Ostatnio dodane elementy",
     actions: {
       delete: {
         title: "Jesteś pewny",
