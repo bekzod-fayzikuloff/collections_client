@@ -203,7 +203,7 @@ const CollectionContent = (props: { items: IItem[], collection: ICollection | nu
             <Typography gutterBottom variant="h5" component="div">
               {collection?.title}
             </Typography>
-            <Typography color="text.secondary">
+            <Typography  component={'span'} color="text.secondary">
               {parse(collection?.description || "")}
             </Typography>
           </CardContent>
