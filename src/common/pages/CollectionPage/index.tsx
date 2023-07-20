@@ -25,6 +25,8 @@ import {useConfirm} from "material-ui-confirm";
 import AddIcon from '@mui/icons-material/Add';
 import {ChangeCollectionModal} from "../../../components/CollectionEdit";
 import {ItemCreateModal} from "../../../components/ItemCreate";
+import Chip from '@mui/joy/Chip';
+import ChipDelete from '@mui/joy/ChipDelete';
 
 const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags", "actions"];
 
@@ -51,12 +53,25 @@ const ItemsTable = (props: { items: IItem[] }) => {
       {
         field: "tags",
         headerName: t("common.tags"),
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        valueGetter: ({value}: { value: any }) => {
-          return "dsd"
-        },
-        flex: 1
+        flex: 1,
+        renderCell: params => {
+          const tags = params?.row?.tags || []
+          return (
+            <>
+            {tags.map((tag: {id: number, title: string}) => (
+              <Chip
+                key={tag.id}
+                size="sm"
+                variant="outlined"
+                color="info"
+                endDecorator={<ChipDelete />}
+              >
+                {tag.title}
+              </Chip>
+              ))}
+            </>
+          )
+        }
       },
       {
         field: "createdAt", headerName: t("common.createdAt"), flex: 1
