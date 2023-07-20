@@ -30,9 +30,34 @@ import ChipDelete from '@mui/joy/ChipDelete';
 
 const VISIBLE_FIELDS = ['title', 'collection', "createdAt", "tags", "actions"];
 
+type Tag = {id: number, title: string}
+
+const TableTags = (props: {tags: Tag[], isCreator: boolean}) => {
+  const [tags, setTags] = useState<Tag[]>(props.tags)
+  const handleDelete = (id: number) => {
+    setTags(prevState => prevState.filter(tag => tag.id !== id))
+  }
+  return (
+    <>
+      {tags.map((tag: {id: number, title: string}) => (
+        <Chip
+          key={tag.id}
+          size="sm"
+          variant="outlined"
+          color="info"
+          endDecorator={props.isCreator && <ChipDelete onDelete={() => handleDelete(tag.id)}/>}
+        >
+          {tag.title}
+        </Chip>
+      ))}
+    </>
+  )
+}
+
 const ItemsTable = (props: { items: IItem[] }) => {
   const navigate = useNavigate()
   const {t} = useTranslation()
+  const {user} = useContext(AuthContext)
 
   const itemsData: { columns: GridColDef[], rows: IItem[] } = {
     columns: [
@@ -55,22 +80,9 @@ const ItemsTable = (props: { items: IItem[] }) => {
         headerName: t("common.tags"),
         flex: 1,
         renderCell: params => {
+          const isCreator = params?.row?.collection?.userId === user?.userId
           const tags = params?.row?.tags || []
-          return (
-            <>
-            {tags.map((tag: {id: number, title: string}) => (
-              <Chip
-                key={tag.id}
-                size="sm"
-                variant="outlined"
-                color="info"
-                endDecorator={<ChipDelete />}
-              >
-                {tag.title}
-              </Chip>
-              ))}
-            </>
-          )
+          return (<TableTags tags={tags} isCreator={isCreator}/>)
         }
       },
       {
@@ -196,7 +208,7 @@ const CollectionContent = (props: { items: IItem[], collection: ICollection | nu
           </CardContent>
 
           {
-            user.userId === collection?.userId &&
+            user?.userId === collection?.userId &&
               <>
                   <CardActions>
                       <Button onClick={handleDelete} variant="outlined" color={"error"} startIcon={<DeleteIcon/>}>
