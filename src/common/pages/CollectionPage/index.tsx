@@ -168,7 +168,7 @@ const CollectionContent = (props: { items: IItem[], collection: ICollection | nu
         <Card sx={{maxWidth: 1}}>
           <CardMedia
             sx={{height: 250}}
-            image={NoImage}
+            image={collection?.image ? collection.image : NoImage}
             title="collection image"
           />
           <CardContent>
