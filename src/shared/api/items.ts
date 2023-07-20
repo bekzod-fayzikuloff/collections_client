@@ -1,5 +1,5 @@
 import axios from "axios";
-import {itemsUrl} from "../constants/endpoints";
+import {itemsUrl, tagsUrl} from "../constants/endpoints";
 
 export const itemsService = {
   getItem: (itemId: number | string) => {
@@ -12,5 +12,9 @@ export const itemsService = {
 
   getLatestItems: (latest: number) => {
     return axios.get(`${itemsUrl}?latest=${latest}`)
+  },
+
+  deleteItemTag: (tagId: number) => {
+    return axios.delete(`${tagsUrl}/${tagId}`)
   }
 }

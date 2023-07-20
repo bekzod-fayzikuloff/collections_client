@@ -36,6 +36,7 @@ const TableTags = (props: {tags: Tag[], isCreator: boolean}) => {
   const [tags, setTags] = useState<Tag[]>(props.tags)
   const handleDelete = (id: number) => {
     setTags(prevState => prevState.filter(tag => tag.id !== id))
+    api.deleteItemTag(id).then().catch()
   }
   return (
     <>
