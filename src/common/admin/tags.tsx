@@ -1,4 +1,4 @@
-import {Create, Datagrid, List, SimpleForm, TextField, TextInput} from "react-admin";
+import {Create, Datagrid, List, ReferenceInput, SimpleForm, TextField, TextInput} from "react-admin";
 
 export const TagsList = () => {
   return (
@@ -16,6 +16,7 @@ export const CreateTag = () => {
     <Create>
       <SimpleForm>
         <TextInput name={"title"} source={"title"} />
+        <ReferenceInput name={"itemId"} source={"itemId"}  reference={"items"}/>
       </SimpleForm>
     </Create>
   )
