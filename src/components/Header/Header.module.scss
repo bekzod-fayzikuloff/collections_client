@@ -6,7 +6,7 @@
   border-radius: 11pt;
 }
 
-.search__input input[type="search"] {
+.search__input input[type='search'] {
   width: 300px;
   background: transparent;
   margin: 0;
@@ -26,11 +26,11 @@
   align-items: center;
 }
 
-.search__input input[type="search"]::placeholder {
+.search__input input[type='search']::placeholder {
   color: #bbb;
 }
 
-.search__input input[type="search"]:focus {
+.search__input input[type='search']:focus {
   outline: none;
 }
 

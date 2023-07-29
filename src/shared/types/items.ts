@@ -1,11 +1,11 @@
-import {ICollection} from "./collections";
+import { ICollection } from './collections';
 
 export type CustomField = {
   id: number;
   type: string;
   value: string;
-  title: string
-}
+  title: string;
+};
 
 export interface IItem {
   id: number;
@@ -14,5 +14,5 @@ export interface IItem {
   createdAt: string;
   updatedAt: string;
   customField: [];
-  title: string
+  title: string;
 }

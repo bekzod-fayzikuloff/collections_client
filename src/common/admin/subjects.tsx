@@ -1,35 +1,34 @@
-import {Edit, Create, SimpleForm, TextInput, List, TextField, Datagrid} from "react-admin"
+import { Edit, Create, SimpleForm, TextInput, List, TextField, Datagrid } from 'react-admin';
 
 export const SubjectsList = () => {
   return (
     <List>
-      <Datagrid rowClick={"edit"}>
-        <TextField source={"id"}/>
-        <TextField source={"title"}/>
+      <Datagrid rowClick={'edit'}>
+        <TextField source={'id'} />
+        <TextField source={'title'} />
       </Datagrid>
     </List>
-  )
-}
-
+  );
+};
 
 export const EditSubject = () => {
   return (
     <Edit>
       <SimpleForm>
-        <TextInput name={"title"} source={"title"} />
-        <TextInput name={"description"} source={"description"} />
+        <TextInput name={'title'} source={'title'} />
+        <TextInput name={'description'} source={'description'} />
       </SimpleForm>
     </Edit>
-  )
-}
+  );
+};
 
 export const CreateSubject = () => {
   return (
     <Create>
       <SimpleForm>
-        <TextInput name={"title"} source={"title"} />
-        <TextInput name={"description"} source={"description"} />
+        <TextInput name={'title'} source={'title'} />
+        <TextInput name={'description'} source={'description'} />
       </SimpleForm>
     </Create>
-  )
-}
+  );
+};

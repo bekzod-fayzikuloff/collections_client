@@ -1,23 +1,23 @@
 interface IUser {
-  username: string
+  username: string;
 }
 
-export type CustomField = {title: string, type: string}
+export type CustomField = { title: string; type: string };
 
 export interface IBiggestCollection {
   itemsCount: number;
-  collection: ICollection
+  collection: ICollection;
 }
 
 export interface ICollection {
   id: number;
   custom: string;
   image?: string;
-  user?: IUser
+  user?: IUser;
   subjectId: number | null;
   title: string;
   userId: string;
   description: string;
   createdAt: string;
-  updatedAt: string
+  updatedAt: string;
 }

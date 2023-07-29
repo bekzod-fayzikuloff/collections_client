@@ -18,10 +18,10 @@ $themes: (
       @each $key, $prop in $properties {
         $value: map-get(map-get($themes, $theme), '#{$key}');
         $theme-map: map-merge(
-            $theme-map,
-            (
-              $key: $value,
-            )
+          $theme-map,
+          (
+            $key: $value,
+          )
         ) !global;
       }
       @content;

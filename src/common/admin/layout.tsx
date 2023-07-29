@@ -1,4 +1,4 @@
-import {Layout, LayoutProps} from 'react-admin';
+import { Layout, LayoutProps } from 'react-admin';
 
 import { CustomAppBar } from './appBar';
 

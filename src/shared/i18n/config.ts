@@ -1,33 +1,32 @@
-import i18n from "i18next";
-import {initReactI18next} from "react-i18next";
-import {ru as rusRus} from "./locales/ru/translations"
-import {en as enEn} from "./locales/en/translations"
-import {be as beBe} from "./locales/be/translations";
-import {pl as plPl} from "./locales/pl/translations";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { ru as rusRus } from './locales/ru/translations';
+import { en as enEn } from './locales/en/translations';
+import { be as beBe } from './locales/be/translations';
+import { pl as plPl } from './locales/pl/translations';
 
-
-const defaultLang = localStorage.getItem("lang") || "en"
+const defaultLang = localStorage.getItem('lang') || 'en';
 
 i18n.use(initReactI18next).init({
   fallbackLng: defaultLang,
   lng: defaultLang,
   resources: {
     en: {
-      translations: enEn
+      translations: enEn,
     },
     ru: {
-      translations: rusRus
+      translations: rusRus,
     },
     be: {
-      translations: beBe
+      translations: beBe,
     },
     pl: {
-      translations: plPl
-    }
+      translations: plPl,
+    },
   },
-  ns: ["translations"],
-  defaultNS: "translations"
-})
+  ns: ['translations'],
+  defaultNS: 'translations',
+});
 
-i18n.languages = ["en", "ru", "be", "pl"]
-export default i18n
+i18n.languages = ['en', 'ru', 'be', 'pl'];
+export default i18n;

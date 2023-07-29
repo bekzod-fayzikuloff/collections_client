@@ -12,24 +12,21 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const registerSchema = object({
-  username: string()
-    .nonempty('Username is required')
-    .max(32, 'Username must be less than 100 characters'),
+  username: string().nonempty('Username is required').max(32, 'Username must be less than 100 characters'),
   email: string().nonempty('Email is required').email('Email is invalid'),
   password: string()
     .nonempty('Password is required')
     .min(8, 'Password must be more than 8 characters')
     .max(32, 'Password must be less than 32 characters'),
-})
+});
 
 type RegisterInput = TypeOf<typeof registerSchema>;
 
-
 export const SignUpPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors, isSubmitSuccessful },
@@ -82,7 +79,7 @@ export const SignUpPage = () => {
             required
             fullWidth
             label="Email Address"
-            type={"email"}
+            type={'email'}
             autoComplete="email"
             error={!!errors['email']}
             helperText={errors['email'] ? errors['email'].message : ''}
@@ -98,24 +95,18 @@ export const SignUpPage = () => {
             helperText={errors['password'] ? errors['password'].message : ''}
             {...register('password')}
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
+          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
             Sign In
           </Button>
           <Grid container>
             <Grid item>
-              <Link onClick={() => navigate("/sign-in")} variant={"body2"}>
-                {"Already have an account? Sign In"}
+              <Link onClick={() => navigate('/sign-in')} variant={'body2'}>
+                {'Already have an account? Sign In'}
               </Link>
             </Grid>
           </Grid>
         </Box>
-
       </Box>
     </Container>
   );
-}
+};

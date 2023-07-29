@@ -1,137 +1,137 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import belarusianMessages from 'ra-language-belarusian'
+import belarusianMessages from 'ra-language-belarusian';
 
 export const be = {
   ...belarusianMessages,
-  "ra.configurable.customize": "Канфігураваць",
+  'ra.configurable.customize': 'Канфігураваць',
   resources: {
     users: {
-      name: "Карыстальнік |||| Карыстальнікі",
+      name: 'Карыстальнік |||| Карыстальнікі',
       fields: {
-        username: "Імя карыстальніка",
-        email: "Электронная пошта",
-        isAdmin: "Адмін",
-        createdAt: "Створаны ў",
-        updatedAt: "Зменены ў"
-      }
+        username: 'Імя карыстальніка',
+        email: 'Электронная пошта',
+        isAdmin: 'Адмін',
+        createdAt: 'Створаны ў',
+        updatedAt: 'Зменены ў',
+      },
     },
     collections: {
-      name: "Калекцыя |||| Калекцыі",
+      name: 'Калекцыя |||| Калекцыі',
       fields: {
-        title: "Назва",
-        description: "Апісанне",
-        userId: "Карыстальнік",
-        subjectId: "Тэма",
-        image: "Малюнак",
-        customFields: "Дадатковыя палі",
-      }
+        title: 'Назва',
+        description: 'Апісанне',
+        userId: 'Карыстальнік',
+        subjectId: 'Тэма',
+        image: 'Малюнак',
+        customFields: 'Дадатковыя палі',
+      },
     },
     items: {
-      name: "Прадмет |||| Прадметы",
+      name: 'Прадмет |||| Прадметы',
       fields: {
-        title: "Назва",
-        description: "Апісанне",
-        collectionId: "Калекцыя",
-        customFields: "Дадатковыя палі",
-      }
+        title: 'Назва',
+        description: 'Апісанне',
+        collectionId: 'Калекцыя',
+        customFields: 'Дадатковыя палі',
+      },
     },
     subjects: {
-      name: "Тэма |||| Тэмы",
+      name: 'Тэма |||| Тэмы',
       fields: {
-        title: "Назва",
-        description: "Апісанне"
-      }
+        title: 'Назва',
+        description: 'Апісанне',
+      },
     },
     comments: {
-      name: "Каментар |||| Каментары",
+      name: 'Каментар |||| Каментары',
       fields: {
-        text: "Змест",
-        userId: "Карыстальнік",
-        itemId: "Прадмет"
-      }
+        text: 'Змест',
+        userId: 'Карыстальнік',
+        itemId: 'Прадмет',
+      },
     },
     likes: {
-      name: "Адзнака падабаецца |||| Адзнакі падабаецца",
+      name: 'Адзнака падабаецца |||| Адзнакі падабаецца',
       fields: {
-        userId: "Карыстальнік",
-        itemId: "Прадмет"
-      }
+        userId: 'Карыстальнік',
+        itemId: 'Прадмет',
+      },
     },
     tags: {
-      name: "Тэг |||| Тэгі",
+      name: 'Тэг |||| Тэгі',
       fields: {
-        title: "Назва"
-      }
-    }
+        title: 'Назва',
+      },
+    },
   },
-  "header-title": "Светлая і цёмная тэма",
+  'header-title': 'Светлая і цёмная тэма',
   pages: {
     notFound: {
-      notFoundMsg: "Старонка не знойдзена",
-      oops: "Упс",
-      msg: "Старонкі, якую вы шукаеце, не існуе",
-      goHome: "На галоўную"
-    }
+      notFoundMsg: 'Старонка не знойдзена',
+      oops: 'Упс',
+      msg: 'Старонкі, якую вы шукаеце, не існуе',
+      goHome: 'На галоўную',
+    },
   },
   components: {
     header: {
-      search: "Пошук"
-    }
+      search: 'Пошук',
+    },
   },
   common: {
-    lang: "Мова",
-    collections: "Калекцыі",
-    collection: "Калекцыя",
-    title: "Назва",
-    tags: "Тэгі",
-    createdAt: "Створаны",
-    view: "Прагледзець",
-    perPage: "Радок на старонцы",
-    findColumn: "Знайсці калонку",
-    columnTitle: "Назва калонкі",
-    author: "Аўтар",
-    item: "Прадмет",
-    biggestCollections: "Самыя вялікія калекцыі",
-    latest: "Апошнія дададзеныя прадметы",
+    lang: 'Мова',
+    collections: 'Калекцыі',
+    collection: 'Калекцыя',
+    title: 'Назва',
+    tags: 'Тэгі',
+    createdAt: 'Створаны',
+    view: 'Прагледзець',
+    perPage: 'Радок на старонцы',
+    findColumn: 'Знайсці калонку',
+    columnTitle: 'Назва калонкі',
+    author: 'Аўтар',
+    item: 'Прадмет',
+    biggestCollections: 'Самыя вялікія калекцыі',
+    latest: 'Апошнія дададзеныя прадметы',
     actions: {
       delete: {
-        title: "Вы ўпэўнены",
-        collection: "Вы хочаце выдаліць калекцыю"
+        title: 'Вы ўпэўнены',
+        collection: 'Вы хочаце выдаліць калекцыю',
       },
       logout: {
-        dialog: "Вы сапраўды хочаце выйсці з акаўнта"
-      }
-    }
+        dialog: 'Вы сапраўды хочаце выйсці з акаўнта',
+      },
+    },
   },
   mui: {
     dataGrid: {
-      density: "Памер",
-      densityLabel: "Памер",
-      densityCompact: "Маленькі",
-      densityStandard: "Сярэдні",
-      densityComfortable: "Вялікі",
+      density: 'Памер',
+      densityLabel: 'Памер',
+      densityCompact: 'Маленькі',
+      densityStandard: 'Сярэдні',
+      densityComfortable: 'Вялікі',
 
-      hideAll: "Схаваць усё",
-      showAll: "Паказаць усе",
-      columns: "Калонкі",
+      hideAll: 'Схаваць усё',
+      showAll: 'Паказаць усе',
+      columns: 'Калонкі',
 
-      filters: "Фільтры",
-      filterBefore: "Да",
-      filterContain: "Змяшчае",
-      filterAfter: "Пасля",
-      filterEquals: "Роўна",
-      filterEndsWith: "Сканчаецца на",
-      filterIsEmpty: "Пустое",
-      filterNot: "Ня",
-      filterStartWith: "Пачынаецца на",
-      filterIsNotEmpty: "Ня пустое",
-      filterIsAnyOf: "Любы з",
-      filterInput: "Значэнне",
+      filters: 'Фільтры',
+      filterBefore: 'Да',
+      filterContain: 'Змяшчае',
+      filterAfter: 'Пасля',
+      filterEquals: 'Роўна',
+      filterEndsWith: 'Сканчаецца на',
+      filterIsEmpty: 'Пустое',
+      filterNot: 'Ня',
+      filterStartWith: 'Пачынаецца на',
+      filterIsNotEmpty: 'Ня пустое',
+      filterIsAnyOf: 'Любы з',
+      filterInput: 'Значэнне',
 
-      export: "Экспарт",
-      exportPrint: "Надрукаваць",
-      exportCSV: "Спампаваць CSV"
-    }
-  }
-}
+      export: 'Экспарт',
+      exportPrint: 'Надрукаваць',
+      exportCSV: 'Спампаваць CSV',
+    },
+  },
+};

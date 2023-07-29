@@ -33,7 +33,9 @@
   @include themify($themes) {
     background: themed('colorHeaderFooter');
   }
-  tr, th, td {
+  tr,
+  th,
+  td {
     @include themify($themes) {
       color: themed('colorText');
     }
